@@ -140,6 +140,7 @@ const downloadPdf = async (req, res) => {
     const browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: "/opt/render/.cache/puppeteer/chrome/linux-138.0.7204.94/chrome-linux64/chrome",
     });
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle0" });
