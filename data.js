@@ -1,4 +1,4 @@
-export const customDemoText = (username) => {
+const customDemoText = (username) => {
   return `
 # Welcome **${username}** 🎉
 
@@ -39,4 +39,6 @@ Enjoy using the app! 😊
   `;
 };
 
-export const SESSION_EXPIRATION_TIME = 1000 * 60 * 60;
+const SESSION_EXPIRATION_TIME = 1000 * 60 * 60;
+
+module.exports = { customDemoText, SESSION_EXPIRATION_TIME };

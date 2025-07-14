@@ -1,4 +1,4 @@
-const { DEMO_TEXT, customDemoText } = require("../data");
+const { customDemoText } = require("../data");
 const knex = require("./client");
 const { nanoid } = require("nanoid");
 
