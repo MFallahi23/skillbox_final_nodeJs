@@ -26,10 +26,11 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        imgSrc: ["'self'", "https://www.gravatar.com"],
         scriptSrc: ["'self'"],
         connectSrc: ["'self'"],
-        fontSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "*"],
+        fontSrc: ["*"],
+        imgSrc: ["*", "data:"],
       },
     },
   }),
