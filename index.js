@@ -27,7 +27,7 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
-        connectSrc: ["'self'"],
+        connectSrc: ["'self'", "*"],
         styleSrc: ["'self'", "'unsafe-inline'", "*"],
         fontSrc: ["*"],
         imgSrc: ["*", "data:"],
