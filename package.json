@@ -10,7 +10,8 @@
     "start": "cross-env npm run db:migrate && node index.js",
     "test": "echo \"Tests passed\" && exit 0",
     "dev": "cross-env npm run db:migrate && rollup -c -w & nodemon index.js",
-    "build": "rimraf public/bundle.* && rollup --config"
+    "build": "rimraf public/bundle.* && rollup --config",
+    "postinstall": "node node_modules/puppeteer/install.js"
   },
   "engines": {
     "node": "22.x"
