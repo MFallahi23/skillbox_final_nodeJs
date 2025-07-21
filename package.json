@@ -11,7 +11,7 @@
     "test": "echo \"Tests passed\" && exit 0",
     "dev": "cross-env npm run db:migrate && rollup -c -w & nodemon index.js",
     "build": "rimraf public/bundle.* && rollup --config",
-    "postinstall": "npx puppeteer browsers install chrome"
+    "postinstall": "npm ls puppeteer puppeteer-core"
   },
   "engines": {
     "node": "22.x"
