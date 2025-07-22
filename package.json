@@ -8,10 +8,10 @@
   "scripts": {
     "db:migrate": "knex migrate:latest",
     "start": "cross-env npm run db:migrate && node index.js",
-    "test": "echo \"Tests passed\" && exit 0",
     "dev": "cross-env npm run db:migrate && rollup -c -w & nodemon index.js",
     "build": "rimraf public/bundle.* && rollup --config",
-    "postinstall": "npm ls puppeteer puppeteer-core"
+    "postinstall": "npm ls puppeteer puppeteer-core",
+    "test": "node test.js"
   },
   "engines": {
     "node": "22.x"
