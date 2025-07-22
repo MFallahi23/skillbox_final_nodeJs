@@ -11,6 +11,8 @@ const showdown = require("showdown");
 const converter = new showdown.Converter();
 const puppeteer = require("puppeteer");
 const { validationResult } = require("express-validator");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 
 const getNotes = async (req, res) => {
@@ -137,11 +139,18 @@ const downloadPdf = async (req, res) => {
       return res.status(404);
     }
 
+    const chromePath = "/opt/render/.cache/puppeteer/chrome/linux-138.0.7204.94/chrome-linux64/chrome";
+
+    // Log 1: Re-check existence at runtime
+    console.log("[DEBUG] Does Chromium exist at runtime?", fs.existsSync(chromePath), chromePath);
+
     const html = converter.makeHtml(note.text);
     const browser = await puppeteer.launch({
       headless: "new",
+      executablePath: chromePath,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
+    console.log("[DEBUG] Puppeteer is using executable:", browser.process().spawnfile);
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle0" });
     await page.emulateMediaType("screen");
