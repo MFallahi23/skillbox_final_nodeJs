@@ -16,7 +16,7 @@ const router = express.Router();
 
 router.get("/", getNotes);
 router.get("/:id", getNoteById);
-router.get("/:id/pdf", downloadPdf);
+// router.get("/:id/pdf", downloadPdf);
 
 router.post("/", [body("title").trim().notEmpty().withMessage("Title cannot be empty")], createNote);
 router.patch("/:id", updateNote);

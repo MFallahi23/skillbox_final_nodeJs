@@ -9,9 +9,7 @@
     "db:migrate": "knex migrate:latest",
     "start": "cross-env npm run db:migrate && node index.js",
     "dev": "cross-env npm run db:migrate && rollup -c -w & nodemon index.js",
-    "build": "rimraf public/bundle.* && rollup --config",
-    "postinstall": "npx puppeteer browsers install chrome",
-    "test": "node test.js"
+    "build": "rimraf public/bundle.* && rollup --config"
   },
   "engines": {
     "node": "22.x"
